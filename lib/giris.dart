@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/hastasonuclari.dart';
+import 'package:flutter_application_1/nobetcihemsirelerlistesi.dart';
 import 'package:flutter_application_1/kadromuz.dart';
 
 
@@ -12,7 +13,11 @@ import 'iletisim.dart';
 import 'hakkimizda.dart';
 import 'hizmetbinalarimiz.dart';
 import 'kadromuz.dart';
-
+import 'hastayorumlari.dart';
+import 'nobetcihemsirelerlistesi.dart';
+import 'doktorasorun.dart';
+import 'package:flutter_application_1/utils/database_helper.dart';
+import 'corona.dart';
 
 class Giris extends StatelessWidget {
   @override
@@ -32,7 +37,11 @@ class Giris extends StatelessWidget {
         '/kayitol': (context) => Kayitol(),
         '/iletisim': (context) => iletisim(),
         '/kadromuz':(context)=>kadromuz(),
+        '/nobetcihemsirelerlistesi':(context)=>nobetcihemsirelerlistesi(),
        '/hastasonuclari' :(context) => hastasonuclari(), 
+       '/hastayorumlari' :(context) => hastayorumlari(),
+       '/doktorasorun' :(context) => doktorasorun(),
+       '/corona' :(context) => AnimatedDefaultTextStyleWidget(),
       },
     );
   }

@@ -127,7 +127,9 @@ class iletisim extends StatelessWidget {
                         ),
                       ),)
                   ),
+                  
                 ],
+              
               ),
             ),
           ),

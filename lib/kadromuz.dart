@@ -113,8 +113,14 @@ class kadromuz extends StatelessWidget {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Text('Ekle'),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              FloatingActionButton(
+                 child: Text('Ekle'),
         onPressed: () async {
           print(isimController.text);
           print(bransController.text);
@@ -127,6 +133,25 @@ class kadromuz extends StatelessWidget {
           await kadromuzRef.doc(isimController.text).set(kadromuzData);
         },
       ),
+              
+              FloatingActionButton(
+               child: Text('Güncelle',style: TextStyle(fontSize: 10),),
+        onPressed: () async {
+          print(isimController.text);
+          print(bransController.text);
+
+          Map<String, dynamic> kadromuzData = {
+            'isim': isimController.text,
+            'brans': bransController.text
+          };
+
+          await kadromuzRef.doc(isimController.text).update(kadromuzData);
+        },
+              )
+            ],
+          ),
+        )
+     
     );
   }
 }
