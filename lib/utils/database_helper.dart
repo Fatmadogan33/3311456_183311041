@@ -1,16 +1,11 @@
+import 'dart:math';
 import 'package:flutter/foundation.dart';
 import 'package:sqflite/sqflite.dart' as sql;
 import 'dart:async';
 
 class SQLHelper {
   static Future<void> createTables(sql.Database database) async {
-    await database.execute("""CREATE TABLE items(
-        id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-        title TEXT,
-        description TEXT,
-        createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-      )
-      """);
+    await database.execute('CREATE TABLE sorular(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,baslik TEXT,sorunuz TEXT,createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP)',);
   }
 
 
@@ -27,9 +22,9 @@ class SQLHelper {
  
   static Future<int> createItem(String baslik, String? sorunuz) async {
     final db = await SQLHelper.db();
-
+    createTables(db);
     final data = {'baslik': baslik, 'sorunuz': sorunuz};
-    final id = await db.insert('items', data,
+    final id = await db.insert('sorular', data,
         conflictAlgorithm: sql.ConflictAlgorithm.replace);
     return id;
   }
@@ -37,13 +32,13 @@ class SQLHelper {
   
   static Future<List<Map<String, dynamic>>> getItems() async {
     final db = await SQLHelper.db();
-    return db.query('items', orderBy: "id");
+    return db.query('sorular', orderBy: "id");
   }
 
  
   static Future<List<Map<String, dynamic>>> getItem(int id) async {
     final db = await SQLHelper.db();
-    return db.query('items', where: "id = ?", whereArgs: [id], limit: 1);
+    return db.query('sorular', where: "id = ?", whereArgs: [id], limit: 1);
   }
 
   
@@ -58,7 +53,7 @@ class SQLHelper {
     };
 
     final result =
-        await db.update('items', data, where: "id = ?", whereArgs: [id]);
+        await db.update('sorular', data, where: "id = ?", whereArgs: [id]);
     return result;
   }
 
@@ -66,7 +61,7 @@ class SQLHelper {
   static Future<void> deleteItem(int id) async {
     final db = await SQLHelper.db();
     try {
-      await db.delete("items", where: "id = ?", whereArgs: [id]);
+      await db.delete("sorular", where: "id = ?", whereArgs: [id]);
     } catch (err) {
       debugPrint("Something went wrong when deleting an item: $err");
     }
