@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'giris.dart';
 
 
+
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -30,7 +31,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.grey,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      
+      
       home: Giris(),
     );
+    
+    
   }
 }

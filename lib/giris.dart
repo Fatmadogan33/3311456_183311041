@@ -18,6 +18,7 @@ import 'nobetcihemsirelerlistesi.dart';
 import 'doktorasorun.dart';
 import 'package:flutter_application_1/utils/database_helper.dart';
 import 'corona.dart';
+import 'yemeklistesi.dart';
 
 class Giris extends StatelessWidget {
   @override
@@ -41,6 +42,7 @@ class Giris extends StatelessWidget {
        '/hastasonuclari' :(context) => hastasonuclari(), 
        '/hastayorumlari' :(context) => hastayorumlari(),
        '/doktorasorun' :(context) => doktorasorun(),
+       '/yemeklistesi' :(context) => yemeklistesi(),
        '/corona' :(context) => AnimatedDefaultTextStyleWidget(),
       },
     );
