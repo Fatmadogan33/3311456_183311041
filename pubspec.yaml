@@ -45,7 +45,6 @@ dependencies:
   path: ^1.8.0
   syncfusion_flutter_pdf: ^20.3.61
   open_file: ^3.2.1
-  flutter_full_pdf_viewer: ^1.0.6
 
 dev_dependencies:
   flutter_test:

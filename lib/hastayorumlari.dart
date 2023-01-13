@@ -74,7 +74,9 @@ class _MyAppState extends State<hastayorumlari> {
               _futureAlbum = createloadData(_controller.text);
             });
           },
+          
           child: const Text('Yorum oluşturuldu'),
+          
         ),
       ],
     );
